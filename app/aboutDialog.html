@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dx-viewport">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageShrink</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/devextreme/dist/css/dx.common.css">
+    <link>
+    <link rel="dx-theme" data-theme="generic.dark" href="../node_modules/devextreme/dist/css/dx.dark.css">
+    <link>
+    <script nonce>
+        require('../node_modules/devextreme/dist/js/dx.all.js');
+        const AboutDialog = require('./aboutDialog.js');
+    </script>
+</head>
+
+<body style="overflow: hidden;">
+    <div style="-webkit-app-region: drag; margin-top: 4px; display: flex; flex-direction: row; align-items: flex-start">
+        <div style="flex: 1;"><img style="width: 24px; height: 24px; " src="../assets/icons/win/icon.ico" /></div>
+        <div style="font-weight: 600; color: gray;">About ImageShrink</div>
+        <div style="flex: 1;"></div>
+    </div>
+    <div style="text-align: justify; padding: 10px;">
+        The most powerful and useful application in the whole world powered by the greatest programmer all times and
+        nations!
+    </div>
+
+    <div style="display: flex; height: 50px; flex-direction: row;  justify-content: center; align-items: flex-end;">
+        <div id='closeButton' style="width: 75px;"></div>
+    </div>
+
+</body>
+<script>
+    window.onload = (e) => {
+        DevExpress.ui.themes.current('generic.dark');
+        (new AboutDialog()).execute();
+    }
+</script>
+
+</html>

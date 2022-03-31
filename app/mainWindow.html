@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="dx-viewport">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageShrink</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../node_modules/devextreme/dist/css/dx.common.css">
+<link>
+<link rel="dx-theme" data-theme="material.orange.dark"
+    href="../node_modules/devextreme/dist/css/dx.material.orange.dark.css">
+<link>
+
+<script nonce>
+    require('../node_modules/devextreme/dist/js/dx.all.js');
+
+    const MainWindow = require('./mainWindow.js');
+</script>
+<style>
+    .flexRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    .dx-button-text {
+        letter-spacing: 1px;
+    }
+
+    .dx-menu .dx-menu-item-has-icon.dx-menu-item-has-submenu .dx-icon {
+        margin: 0 5px 0 3px;
+    }
+
+    .dx-menu-item-popout {
+        display: none;
+    }
+
+    #closeMenu .dx-state-hover {
+        background-color: #e91e63;
+    }
+</style>
+
+<body style="-webkit-user-select: none;">
+
+    <div data-core-screen-loader>
+        <img src="../assets/icons/Icon_256x256.png" style="display: block;  margin: 150px auto 20px;" />
+    </div>
+
+    <div style="display: none;" data-core-container>
+
+        <div class="flexRow" style="align-items: stretch;">
+            <div id='mainMenu'></div>
+            <div style="flex: 1; -webkit-app-region: drag; width: 100%; align-self: center; text-align: center;">
+                <span style="color: rgb(211, 211, 211); font-size: 16px; letter-spacing: 2px;">ImageShrink</span>
+            </div>
+            <div id='closeMenu'></div>
+        </div>
+
+        <div class="flexRow">
+            <div style="flex: 1;"></div>
+            <div style="font-size: 36px;">
+                <img style="width: 64px; height: 64px;" src="../assets/icons/Icon_256x256.png" alt="App image" />
+                <span style="vertical-align: top;">ImageShrink</span>
+            </div>
+            <div style="flex: 1;"></div>
+        </div>
+
+        <div class="flexRow">
+            <div>Choose an image to resize</div>
+        </div>
+
+        <div class="flexRow">
+            <input id='fileInput' type="file" accept="image/*" style="display: none;" />
+            <div style="flex: 1; margin: 0px 10px;" id='browseButton'></div>
+        </div>
+
+        <div class="flexRow" style="justify-content: flex-start; padding: 0 0 0 10px;">
+            <div>
+                <span>Uploaded file name:</span>
+            </div>
+        </div>
+        <div class="flexRow">
+            <div style="flex: 1; margin: 0px 10px;" id=uploadedFileTextEditor></div>
+        </div>
+
+        <div class="flexRow" style="justify-content: flex-start; padding: 20px 0 0 10px;">
+            <div>
+                <span style="font-weight: 600; margin-right: 10px;">Quality:</span>
+                <span>The lower the quality, the smaller the file size</span>
+            </div>
+        </div>
+
+        <div class="flexRow">
+            <div style="flex: 1; margin: 0px 10px;" id='qualitySlider'></div>
+        </div>
+
+        <div class="flexRow">
+            <div style="flex: 1; margin: 0px 10px;" id='resizeButton'></div>
+        </div>
+        <div class="flexRow" style="justify-content: flex-start; padding: 0 0 0 10px;">
+            <div>
+                <span>Output path:</span>
+            </div>
+        </div>
+        <div class="flexRow">
+            <div style="flex: 1; margin: 0px 10px;" id=outputFilePathTextEditor></div>
+        </div>
+    </div>
+
+    <div id='aboutDialog' data-core-about-dialog-container style="display: none;">
+
+        <div class="flexRow" style="align-items: flex-start;">
+            <div style="padding-right: 10px;">
+                <img style="width: 64px; height: 64px;" src="../assets/icons/Icon_256x256.png" alt="App image" />
+            </div>
+            <div style="line-height: 2em; text-align: justify;">It is the most powerful and useful program for the
+                simplest image processing powered by the greatest programmer in the whole world among of all times and
+                nations :)</div>
+        </div>
+
+        <div class="flexRow">
+            <div style="margin: 0px 10px; width: 125px;" id='aboutDialog_OkButton'></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    window.onload = (e) => {
+        (new MainWindow()).execute();
+
+        setTimeout(() => {
+            document.querySelector('[data-core-screen-loader]').style.display = "none";
+
+            document
+                .querySelector('[data-core-container]')
+                .style
+                .display = "block";
+        }, 2000);
+    };
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+{
+  "author": "Leo",
+  "license": "MIT",
+  "name": "image-shrink",
+  "version": "1.0.0",
+  "description": "It is the most powerful and useful program for an the simplest image processing powered by the greatest programmer in the whole world among of all times and nations :)",
+  "main": "main.js",
+  "build": {
+    "appId": "image-shrink",
+    "win": {
+      "icon": "assets/icons/win/icon.ico"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "builder-dist": "electron-builder",
+    "packager-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "packager-win": "electron-packager . image-shrink --overwrite --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Image Shrink App\"",
+    "packager-linux": "electron-packager . image-shrink --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "devDependencies": {
+    "electron": "^18.0.1",
+    "electron-builder": "^22.14.13",
+    "electron-builder-squirrel-windows": "^23.0.3",
+    "electron-packager": "^15.4.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "devextreme": "^21.2.6",
+    "electron-log": "^4.4.6",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0"
+  }
+}
